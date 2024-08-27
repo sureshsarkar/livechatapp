@@ -6,25 +6,24 @@ import generateTokenAndSetCookie from "../utils/generateToken.js";
 // signup function 
 export const signup =async (req,res)=>{
     try {
-        const {fullName,userName,password,cpassword,profilePic,gender} = req.body;
+        const {fullname,username,password,cpassword,profilePic,gender} = req.body;
 
         if(password !=cpassword){
             return res.status(400).send({
                 message:"Password not match"
             })
         }
-        const userExist = await User.findOne({userName});
-        
+        const userExist = await User.findOne({username});
+    
         if(userExist){
             return res.status(400).send({
-                message:"Username already exist",
-                atatus:false
+                message:"username already exist",
+                status:false
             })
         }
-        
         // get dynamic profilePic
-        const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${userName}`;
-        const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${userName}`;
+        const boyProfilePic = `https://avatar.iran.liara.run/public/boy?username=${username}`;
+        const girlProfilePic = `https://avatar.iran.liara.run/public/girl?username=${username}`;
         
         // hash the password 
         const solt  = await bcrypt.genSalt(10);
@@ -32,14 +31,16 @@ export const signup =async (req,res)=>{
 
         // store data in a variable 
         const userData = ({
-            fullName,
-            userName,
+            fullname,
+            username,
             password:hashPassword,
             gender,
             profilePic:gender=== "male"?boyProfilePic:girlProfilePic
         })
-
+     
+        
         const user = await User.create(userData);
+      
         if(user){
             generateTokenAndSetCookie(user._id,res);// call function to generate token
             return res.status(201).send({
@@ -64,16 +65,16 @@ export const signup =async (req,res)=>{
 
 export const login = async (req,res)=>{
     try {
-        const {userName,password} = req.body;
+        const {username,password} = req.body;
 
-        if (!userName || !password) {
+        if (!username || !password) {
             return res.status(400).send({
                 message: "Please fill the details",
                 success: false
             })
         }
 
-        const user = await User.findOne({userName});
+        const user = await User.findOne({username});
     
         if(!user){
             return res.status(400).send({

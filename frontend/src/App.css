@@ -1,0 +1,120 @@
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+  
+
+}
+label{
+    color:#53257c;
+    font-weight: bold;
+}
+.formWidth{
+    width: 400px;
+    margin: auto;
+}
+.marginTop{
+margin-top: 50px;
+}
+.bgImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('./assets/images/login.jpg');
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+}
+.form-check-input{
+    cursor: pointer;
+}
+
+/* home page css start  */
+.homePage{
+    display: flex;
+    height: 100vh;
+    background-image: url('./assets/images/home.jpg');
+}
+.boxDiv{
+    display: flex;
+    height: 100vh;
+    width: 70%;
+    margin: auto;
+    background:#c7f1b87d;
+}
+.searchBtn{
+    padding: 1px 12px;
+    background: #53257c;
+    border-radius: 20px;
+    font-size: 26px;
+    color: #fff;
+}
+.searchInput{
+    padding: 9px 12px;
+    background: #f5ffe7;
+    color: #53257c;
+    font-weight: 600;
+}
+.scrollBar{
+    height: 85vh;
+    overflow-y: scroll;
+}
+.userImg img{
+    width: 40px;
+    border-radius: 20px;
+    box-shadow: #f5ffe7;
+}
+.fullNameText{
+    color: #53257c;
+    font-size: 18px;
+    font-weight: 500;
+
+}
+.topBar{
+    background: #f5ffe7;
+    padding: 9px 10px;
+    margin: 6px;
+    border-radius: 25px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 500;
+}
+.rightMessage{
+    float:right;
+}
+.leftMessageText{
+    background: #ddb7ff;
+    border-radius: 24px 13px 18px 0px;
+    margin-left: 10px;
+}
+.rightMessageText{
+    background: #ddb7ff;
+    border-radius: 13px 18px 0px 24px;
+    margin-right: 10px;
+}
+.messageScrollBar{
+    height: 79vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding:0px 10px;
+}
+.noChat{
+    height: 40vh;
+    margin-top: 40%;
+}
+.onChatbg{
+    background-image: url('../src/assets/images/home.jpg');
+}
+.noChat h5{
+    font-size: 30px;
+    font-weight: 600;
+}
