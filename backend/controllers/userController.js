@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import User from "../models/UserModel.js";
+import User from "../models/userModel.js";
 export const getSideBarUser = async(req,res)=>{
     try {
         
