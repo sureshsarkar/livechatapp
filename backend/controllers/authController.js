@@ -109,7 +109,7 @@ export const login = async (req,res)=>{
 // get all the user 
 export const alluser = async (req, res)=>{
     try {
-        const users = await User.alluser();
+        const users = await User.find();
      
             return res.status(201).send({
                 message: "Users Got",
@@ -120,7 +120,7 @@ export const alluser = async (req, res)=>{
 
     } catch (error) {
         res.status(400).send({
-            message: "Failed to logout",
+            message: "Failed to get users",
             success:false
         })
     }
