@@ -99,7 +99,30 @@ export const login = async (req,res)=>{
             })
         
     } catch (error) {
-        res.send("Server Error");
+        res.status(400).send({
+            message: "Failed to login",
+            success:false
+        })
+    }
+}
+
+// get all the user 
+export const alluser = async (req, res)=>{
+    try {
+        const users = await User.alluser();
+     
+            return res.status(201).send({
+                message: "Users Got",
+                success: true,
+                data:users
+            })
+        
+
+    } catch (error) {
+        res.status(400).send({
+            message: "Failed to logout",
+            success:false
+        })
     }
 }
 
